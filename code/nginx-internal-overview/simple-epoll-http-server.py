@@ -3,10 +3,11 @@
 import socket
 import select
 
+server_address = ('127.0.0.1', 80)
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
-server_socket.bind(("127.0.0.1", 8888))
-server_socket.listen(10)
+server_socket.bind(server_address)
+server_socket.listen(8)
 server_socket.setblocking(False)
 
 #创建epoll事件对象，后续要监控的事件添加到其中
@@ -17,7 +18,7 @@ epoll.register(server_socket.fileno(), select.EPOLLIN)
 fd_to_socket = {server_socket.fileno(): server_socket, }
 
 while True:
-  print("waiting connection active......")
+  print("http://%s:%d waiting connection active......" % server_address)
   #轮询注册的事件集合，返回值为[(文件句柄，对应的事件)，(...),....]
   events = epoll.poll(-1)  # 永不超时
   if not events:
