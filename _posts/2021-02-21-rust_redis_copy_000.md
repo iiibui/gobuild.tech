@@ -142,4 +142,6 @@ let p = if p.is_null() {
 
 redis很多数据结构都有容量的，故一直强调malloc_size，后面抄sds(字符串)的实现时会很自然想起malloc_size。封装tcmalloc/jemalloc和内存使用统计功能往后再关注，现重心在数据结构。
 
+完整代码 <https://github.com/iiibui/redis-rust-copy/blob/main/src/z_malloc.rs>
+
 > https://mp.weixin.qq.com/s?__biz=MzIxNzE5NDUyNQ==&mid=2247483660&idx=1&sn=c24ef7f2351fa31dc195d7a207fdbaf7
