@@ -6,7 +6,7 @@ categories: [redis, rust, 源码分析]
 tags: [redis, rust, 源码分析]
 ---
 
-# redis通过zmalloc分配内存
+## redis通过zmalloc分配内存
 
   - 封装tcmalloc/jemalloc/系统内存分配器，跨平台
 

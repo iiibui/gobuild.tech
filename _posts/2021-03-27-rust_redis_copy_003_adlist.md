@@ -8,7 +8,7 @@ tags: [redis, rust, 源码分析]
 
 ![adlist structure](/imgs/rust-redis-copy-003-adlist/adlist.png)
 
-# adlist（A generic doubly linked list）：
+## adlist（A generic doubly linked list）：
 
 ```c
 typedef struct listNode {
@@ -68,7 +68,7 @@ pub struct Node<T: Copy + PartialEq> {
 
 不用 **`Option<NonNull>`** 主要考虑操纵裸指针更加直观，也不用Option包裹裸指针，Option包裹裸指针后占用内存大小为两倍指针大小（指针可null，无法对None优化），节点数据类型用一个Copy（用于复制）和PartialEq（用于相等判断）约束，这样不用考虑Drop的问题，也不用考虑所有权，缺点是放复杂的数据只能用裸指针（如果只是临时存放，用借用也可以），value字段类型是T而不是*T，因为指针也是类型的一种，T也能表达指针类型。
 
-# 创建列表：
+## 创建列表：
 
 ```rust
     // same as
@@ -90,7 +90,7 @@ pub struct Node<T: Copy + PartialEq> {
 List直接在栈上创建，这和C版本不一样，当然，后面在嵌套使用时如果不方便可能会再做修改。
 
 
-# 在列表头或尾添加元素：
+## 在列表头或尾添加元素：
 
 ```rust
     pub fn push_front(&mut self, value: T) -> &mut Self {
@@ -142,7 +142,7 @@ List直接在栈上创建，这和C版本不一样，当然，后面在嵌套使
 
 unsafe rust写起来比C麻烦得多；可以看出列表头的prev和列表尾的next指向null，即列表并非循环列表。
 
-# 查找元素：
+## 查找元素：
 
 ```rust
     // same as
@@ -192,10 +192,11 @@ impl<T: Copy + PartialEq> Iterator for It<T> {
         Some(current)
     }
 }
-
+```
 
 删除节点：
 
+```rust
     // same as
     // void listDelNode(list *list, listNode *node)
     pub unsafe fn remove(&mut self, node: *mut Node<T>) {
@@ -223,7 +224,7 @@ impl<T: Copy + PartialEq> Iterator for It<T> {
     }
 ```
 
-# 清空列表：
+## 清空列表：
 
 ```rust
     // same as
