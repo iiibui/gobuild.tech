@@ -238,4 +238,6 @@ SdsHdr里的flags/buf字段只是用来占位的，改成_flags/_buf，避免编
 > https://mp.weixin.qq.com/s?__biz=MzIxNzE5NDUyNQ==&mid=2247483676&idx=1&sn=34ec4931298afd31f3a94c9699ce2a1b
 
 
-上一篇 [我想用rust抄写redis 001 - sds定义](https://gobuild.tech/rust-redis-copy/001-sds)
+上一篇 [我想用rust抄写redis 001 - sds定义](/rust-redis-copy/001-sds)
+
+下一篇 [我想用rust抄写redis 002 - sds复杂操作](/rust-redis-copy/002-sds-op-complex)
