@@ -320,4 +320,4 @@ impl Ord for Sds {
 > http://mp.weixin.qq.com/s?__biz=MzIxNzE5NDUyNQ==&mid=2247483681&idx=1&sn=ee8074762efe6aa90364e45a146edaee
 
 
-上一篇 [我想用rust抄写redis 002 - sds基本操作](/rust-redis-copy/002-sds-op-base)
+上一篇 [我想用rust抄写redis 002 - sds基本操作](/rust-redis-copy/002-sds-op-basic)
