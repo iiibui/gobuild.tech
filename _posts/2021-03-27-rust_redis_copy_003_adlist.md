@@ -194,7 +194,7 @@ impl<T: Copy + PartialEq> Iterator for It<T> {
 }
 ```
 
-删除节点：
+## 删除节点：
 
 ```rust
     // same as
